@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  background-color: gray;
+  color: white;
+  font-size: 80px;
+}
+
+.main {
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.main .main_para1, .main .main_para2 {
+  font-weight: 700;
+  font-family: sans-serif;
+}
+.main .main_para2:hover {
+  color: red;
+}
+.main:hover {
+  color: pink;
+}
+@media (max-width: 800px) {
+  .main {
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=main.css.map */

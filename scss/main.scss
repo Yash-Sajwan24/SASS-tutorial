@@ -1,0 +1,68 @@
+@import "./reset.scss";
+@import "./variable.scss";
+
+@function weight($size) {
+  @return map-get($font-weight, $size);
+}
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($primary-color, 50%);
+    color: darken($text-color, 50%);
+  }
+}
+
+@mixin mobile() {
+    @media (max-width: $mobile){
+        @content;
+    }
+}
+
+body {
+  background-color: $primary-color;
+  color: $text-color;
+  font-size: 80px;
+}
+
+.main {
+  width: 80%-40%;// no need to use calc(80%-40%);
+  margin: 0 auto;
+  @include flexCenter(row);
+
+  #{&}_para1 {
+    font-weight: weight(bold);
+    font-family: sans-serif;
+  }
+
+  #{&}_para2{
+    @extend .main_para1; //extend the properties of para1 into para2
+
+    &:hover{
+        color: $accent-color;
+    }
+  }
+
+  &:hover {
+    color: pink;
+  }
+
+  @include mobile(){
+    flex-direction: column;
+  }
+  
+
+}
+
+.light {
+    @include theme($light-theme: false);
+  }
+
+
+
